@@ -12561,9 +12561,7 @@ var qrcode = function() {
     overflow-x:auto;
     -webkit-overflow-scrolling:touch;
     padding-bottom:10px;
-    margin:0 -20px;
-    padding-left:20px;
-    padding-right:20px;
+    max-width:100%;
   }
   .scrollwrap::-webkit-scrollbar{height:6px;}
   .scrollwrap::-webkit-scrollbar-thumb{background:var(--idle);border-radius:99px;}
@@ -12723,6 +12721,7 @@ var qrcode = function() {
     .seat{font-size:11px;padding:6px 3px;min-height:38px;}
     .seat .sid{font-size:9.5px;}
     .teacherbox{width:calc(var(--cell) * 3 + 10px);font-size:12px;}
+    .zonebox.wide{width:560px;}
   }
 
   /* ---- QR scan ---- */
