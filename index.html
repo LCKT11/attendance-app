@@ -12557,6 +12557,25 @@ var qrcode = function() {
     margin:22px 0 10px;
     color:var(--ink);
   }
+  .scrollwrap{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:10px;
+    margin:0 -20px;
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .scrollwrap::-webkit-scrollbar{height:6px;}
+  .scrollwrap::-webkit-scrollbar-thumb{background:var(--idle);border-radius:99px;}
+  .scroll-hint{
+    display:none;
+    font-size:12px;
+    color:var(--brass);
+    margin-bottom:6px;
+  }
+  @media (max-width: 700px){
+    .scroll-hint{display:block;}
+  }
   .lcroom{display:flex;gap:14px;align-items:flex-start;}
   .lc-left{display:flex;flex-direction:column;gap:6px;flex:0 0 auto;margin-top:0;}
   .lc-rest{display:flex;flex-direction:column;gap:10px;flex:0 1 auto;width:fit-content;min-width:0;}
@@ -12697,6 +12716,14 @@ var qrcode = function() {
     color:var(--ink);
   }
   .copy-row{display:flex;align-items:center;gap:10px;margin-top:10px;}
+  @media (max-width: 700px){
+    :root{ --cell: 92px; }
+    .wrap{padding:16px 16px 40px;}
+    header .title{font-size:22px;}
+    .seat{font-size:11px;padding:6px 3px;min-height:38px;}
+    .seat .sid{font-size:9.5px;}
+    .teacherbox{width:calc(var(--cell) * 3 + 10px);font-size:12px;}
+  }
 
   /* ---- QR scan ---- */
   .scan-wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;}
@@ -13152,11 +13179,18 @@ function renderFloor(){
     title.className = 'room-title';
     title.textContent = ROOM_TITLE[r];
     container.appendChild(title);
+    const hint = document.createElement('div');
+    hint.className = 'scroll-hint';
+    hint.textContent = '옆으로 밀어서 전체 자리표를 볼 수 있어요 →';
+    container.appendChild(hint);
+    const scrollWrap = document.createElement('div');
+    scrollWrap.className = 'scrollwrap';
     let floorEl;
     if(r === 'lc') floorEl = buildLCFloor(wdKey, counters);
     else if(r === 'st') floorEl = buildSTFloor(wdKey, counters);
     else floorEl = buildUNFloor(wdKey, counters);
-    container.appendChild(floorEl);
+    scrollWrap.appendChild(floorEl);
+    container.appendChild(scrollWrap);
     if(r === 'lc') alignLCLeftColumn(floorEl);
   });
 
