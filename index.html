@@ -12431,6 +12431,10 @@ var qrcode = function() {
     --cell: 118px;
   }
   *{box-sizing:border-box;}
+  html, body{
+    max-width:100vw;
+    overflow-x:hidden;
+  }
   body{
     margin:0;
     background:var(--paper);
@@ -12576,7 +12580,7 @@ var qrcode = function() {
   }
   .lcroom{display:flex;gap:14px;align-items:flex-start;}
   .lc-left{display:flex;flex-direction:column;gap:6px;flex:0 0 auto;margin-top:0;}
-  .lc-rest{display:flex;flex-direction:column;gap:10px;flex:0 1 auto;width:fit-content;min-width:0;}
+  .lc-rest{display:flex;flex-direction:column;gap:10px;flex:0 0 auto;width:fit-content;}
 
   .rowline{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;}
   .rowline.spread{justify-content:space-between;}
