@@ -12831,7 +12831,9 @@ var qrcode = function() {
       </div>
     </div>
 
-    <div id="seatfloor"></div>
+    <div id="seatfloor">
+      <div class="hint">명단을 불러오는 중...</div>
+    </div>
   </div>
 
   <div id="view-stats" class="view">
@@ -12936,12 +12938,32 @@ const sheetStore = {
   }
 };
 
-const ACTIVE = [{"id": 20101, "name": "강성찬", "mon": false, "tue": true, "wed": false, "thu": true, "fri": true}, {"id": 20102, "name": "고영은", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20103, "name": "곽수연", "mon": false, "tue": true, "wed": false, "thu": false, "fri": true}, {"id": 20104, "name": "김가은", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20115, "name": "이돈빈", "mon": true, "tue": false, "wed": true, "thu": false, "fri": true}, {"id": 20116, "name": "이시우", "mon": false, "tue": true, "wed": false, "thu": false, "fri": true}, {"id": 20117, "name": "이초희", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20119, "name": "이해인", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20122, "name": "조재현", "mon": false, "tue": false, "wed": false, "thu": true, "fri": true}, {"id": 20123, "name": "최승우", "mon": true, "tue": false, "wed": true, "thu": false, "fri": true}, {"id": 20126, "name": "홍석희", "mon": true, "tue": false, "wed": true, "thu": false, "fri": true}, {"id": 20204, "name": "김나연", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20205, "name": "김다미", "mon": true, "tue": false, "wed": false, "thu": true, "fri": false}, {"id": 20209, "name": "김하민", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20213, "name": "배민성", "mon": true, "tue": false, "wed": true, "thu": false, "fri": true}, {"id": 20214, "name": "배은수", "mon": true, "tue": false, "wed": false, "thu": true, "fri": false}, {"id": 20225, "name": "주혜린", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20302, "name": "강은서", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20304, "name": "김동현", "mon": false, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20306, "name": "김범서", "mon": true, "tue": true, "wed": true, "thu": true, "fri": false}, {"id": 20310, "name": "배우주", "mon": true, "tue": false, "wed": true, "thu": false, "fri": true}, {"id": 20321, "name": "정준우", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20324, "name": "최서윤", "mon": true, "tue": true, "wed": true, "thu": true, "fri": false}, {"id": 20326, "name": "한효원", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20401, "name": "권율", "mon": false, "tue": true, "wed": true, "thu": true, "fri": false}, {"id": 20402, "name": "김다은", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20405, "name": "김시후", "mon": false, "tue": true, "wed": false, "thu": false, "fri": true}, {"id": 20406, "name": "김은찬", "mon": true, "tue": true, "wed": false, "thu": true, "fri": true}, {"id": 20418, "name": "이예슬", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20422, "name": "장윤슬", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20427, "name": "최수안", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20503, "name": "권순범", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20505, "name": "김범", "mon": false, "tue": false, "wed": false, "thu": true, "fri": true}, {"id": 20515, "name": "엄하은", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20516, "name": "유수인", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20521, "name": "이수민", "mon": false, "tue": true, "wed": false, "thu": true, "fri": true}, {"id": 20526, "name": "진호용", "mon": false, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20601, "name": "김규종", "mon": true, "tue": false, "wed": true, "thu": false, "fri": true}, {"id": 20603, "name": "김도윤", "mon": false, "tue": false, "wed": true, "thu": true, "fri": true}, {"id": 20614, "name": "손희성", "mon": true, "tue": false, "wed": true, "thu": false, "fri": true}, {"id": 20618, "name": "이아린", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20703, "name": "김예린", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20705, "name": "김지후", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20707, "name": "박보은", "mon": true, "tue": true, "wed": true, "thu": false, "fri": false}, {"id": 20712, "name": "안우진", "mon": false, "tue": true, "wed": true, "thu": false, "fri": true}, {"id": 20714, "name": "양재호", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20807, "name": "김정모", "mon": false, "tue": true, "wed": false, "thu": false, "fri": true}, {"id": 20810, "name": "단예준", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20813, "name": "박시현", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20815, "name": "윤성경", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20816, "name": "윤하준", "mon": false, "tue": true, "wed": false, "thu": true, "fri": false}, {"id": 20818, "name": "이민재", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20822, "name": "이제호", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20827, "name": "한다한", "mon": true, "tue": false, "wed": true, "thu": false, "fri": false}, {"id": 20903, "name": "김도윤", "mon": true, "tue": false, "wed": true, "thu": false, "fri": false}, {"id": 20904, "name": "김동일", "mon": true, "tue": true, "wed": true, "thu": true, "fri": false}, {"id": 20915, "name": "이소율", "mon": true, "tue": false, "wed": true, "thu": false, "fri": true}, {"id": 20918, "name": "이태상", "mon": false, "tue": true, "wed": false, "thu": true, "fri": true}, {"id": 20924, "name": "최준혁", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20824, "name": "이환", "mon": true, "tue": true, "wed": true, "thu": true, "fri": true}, {"id": 20513, "name": "안승준", "mon": false, "tue": true, "wed": true, "thu": true, "fri": true}];
-const LAYOUT = {"lc": {"leftCol": [20714, 20119, 20503, 20204, 20810, 20818, 20321], "topLeft": [20117, 20513], "topRight": [20418, 20924], "mid1": [[20822, 20304, 20915], [20306, 20903, 20827]], "sharedA_group": [20712, 20205], "sharedA_rest": [20601, 20115, 20310], "sharedB_group": [20126, 20214, 20401], "sharedB_rest": [20213, 20614], "mid2": [[20904, 20526, 20326], [20324, 20824, 20406]], "bottom": [[20516, 20123], [20707, 20603]]}, "st": [{"id": "row1", "ids": [20302, 20402, 20102, 20816, 20122, 20918, 20505, 20807]}, {"id": "row2", "ids": [20103, 20104, 20618, 20427, 20705, 20813, 20422, 20815, 20209, 20703, 20515, 20225]}, {"id": "row3", "ids": [20405, 20116, 20521, 20918, 20101]}], "un": []};
+let ACTIVE = [];
+const LAYOUT = {"lc": {"leftCol": ["lc_left_1", "lc_left_2", "lc_left_3", "lc_left_4", "lc_left_5", "lc_left_6", "lc_left_7"], "topLeft": ["lc_topLeft_1", "lc_topLeft_2"], "topRight": ["lc_topRight_1", "lc_topRight_2"], "mid1": [["lc_mid1_1", "lc_mid1_2", "lc_mid1_3"], ["lc_mid1_4", "lc_mid1_5", "lc_mid1_6"]], "sharedA_group": ["lc_sharedA_group_1", "lc_sharedA_group_2"], "sharedA_rest": ["lc_sharedA_rest_1", "lc_sharedA_rest_2", "lc_sharedA_rest_3"], "sharedB_group": ["lc_sharedB_group_1", "lc_sharedB_group_2", "lc_sharedB_group_3"], "sharedB_rest": ["lc_sharedB_rest_1", "lc_sharedB_rest_2"], "mid2": [["lc_mid2_1", "lc_mid2_2", "lc_mid2_3"], ["lc_mid2_4", "lc_mid2_5", "lc_mid2_6"]], "bottom": [["lc_bottom_1", "lc_bottom_2"], ["lc_bottom_3", "lc_bottom_4"]]}, "st": [{"id": "row1", "ids": ["st_row1_1", "st_row1_2", "st_row1_3", "st_row1_4", "st_row1_5", "st_row1_6", "st_row1_7", "st_row1_8"]}, {"id": "row2", "ids": ["st_row2_1", "st_row2_2", "st_row2_3", "st_row2_4", "st_row2_5", "st_row2_6", "st_row2_7", "st_row2_8", "st_row2_9", "st_row2_10", "st_row2_11", "st_row2_12"]}, {"id": "row3", "ids": ["st_row3_1", "st_row3_2", "st_row3_3", "st_row3_4", "st_row3_5"]}], "un": []};
 const EXPORT_ROWS = [{"id": 20101, "name": "강성찬"}, {"id": 20102, "name": "고영은"}, {"id": 20103, "name": "곽수연"}, {"id": 20104, "name": "김가은"}, {"id": 20115, "name": "이돈빈"}, {"id": 20116, "name": "이시우"}, {"id": 20117, "name": "이초희"}, {"id": 20119, "name": "이해인"}, {"id": 20122, "name": "조재현"}, {"id": 20123, "name": "최승우"}, {"id": 20126, "name": "홍석희"}, {"id": 20204, "name": "김나연"}, {"id": 20205, "name": "김다미"}, {"id": 20209, "name": "김하민"}, {"id": 20213, "name": "배민성"}, {"id": 20214, "name": "배은수"}, {"id": 20225, "name": "주혜린"}, {"id": 20302, "name": "강은서"}, {"id": 20304, "name": "김동현"}, {"id": 20306, "name": "김범서"}, {"id": 20310, "name": "배우주"}, {"id": 20321, "name": "정준우"}, {"id": 20324, "name": "최서윤"}, {"id": 20326, "name": "한효원"}, {"id": 20401, "name": "권율"}, {"id": 20402, "name": "김다은"}, {"id": 20405, "name": "김시후"}, {"id": 20406, "name": "김은찬"}, {"id": 20418, "name": "이예슬"}, {"id": 20422, "name": "장윤슬"}, {"id": 20427, "name": "최수안"}, {"id": 20503, "name": "권순범"}, {"id": 20505, "name": "김범"}, {"id": 20515, "name": "엄하은"}, {"id": 20516, "name": "유수인"}, {"id": 20521, "name": "이수민"}, {"id": 20526, "name": "진호용"}, {"id": 20601, "name": "김규종"}, {"id": 20603, "name": "김도윤"}, {"id": 20614, "name": "손희성"}, {"id": 20614, "name": "손희성"}, {"id": 20618, "name": "이아린"}, {"id": 20703, "name": "김예린"}, {"id": 20705, "name": "김지후"}, {"id": 20707, "name": "박보은"}, {"id": 20712, "name": "안우진"}, {"id": 20714, "name": "양재호"}, {"id": 20807, "name": "김정모"}, {"id": 20810, "name": "단예준"}, {"id": 20813, "name": "박시현"}, {"id": 20814, "name": "양석호"}, {"id": 20815, "name": "윤성경"}, {"id": 20816, "name": "윤하준"}, {"id": 20818, "name": "이민재"}, {"id": 20822, "name": "이제호"}, {"id": 20827, "name": "한다한"}, {"id": 20903, "name": "김도윤"}, {"id": 20904, "name": "김동일"}, {"id": 20915, "name": "이소율"}, {"id": 20918, "name": "이태상"}, {"id": 20924, "name": "최준혁"}, null, {"id": 20824, "name": "이환"}, {"id": 20513, "name": "안승준"}];
 
-const byId = {};
-ACTIVE.forEach(s => byId[s.id] = s);
+let byId = {};
+let bySeat = {};
+
+async function loadRoster(){
+  try{
+    const res = await fetch(SHEET_API_URL + '?action=get_roster');
+    const data = await res.json();
+    const rows = data.rows || [];
+    bySeat = {};
+    const dedup = {};
+    rows.forEach(r => {
+      bySeat[r.seat_id] = r;
+      dedup[r.id] = r;
+    });
+    ACTIVE = Object.values(dedup);
+    byId = {};
+    ACTIVE.forEach(s => byId[s.id] = s);
+    return true;
+  }catch(e){
+    return false;
+  }
+}
 
 const WD = ['sun','mon','tue','wed','thu','fri','sat'];
 const WD_LABEL = {mon:'월요일', tue:'화요일', wed:'수요일', thu:'목요일', fri:'금요일', sat:'토요일', sun:'일요일'};
@@ -12988,21 +13010,25 @@ async function loadDay(dateStr){
 
 function statusFor(sid){ return currentStatus[sid] || 'present'; }
 
-function seatEl(sid, wdKey, counters){
-  const s = byId[sid];
+function seatEl(seatId, wdKey, counters){
+  const s = bySeat[seatId];
   const seat = document.createElement('div');
-  const isSched = !!(s && s[wdKey]);
+  if(!s){
+    seat.className = 'seat idle';
+    seat.innerHTML = '<span class="nm">빈자리</span>';
+    return seat;
+  }
+  const isSched = !!s[wdKey];
   if(isSched){
     counters.scheduled++;
-    const st = statusFor(sid);
+    const st = statusFor(s.id);
     seat.className = 'seat ' + st;
     if(st === 'present') counters.present++; else counters.absent++;
-    seat.innerHTML = '<span class="sid">'+sid+'</span><span class="nm">'+s.name+'</span>';
-    seat.onclick = () => toggleSeat(sid);
+    seat.innerHTML = '<span class="sid">'+s.id+'</span><span class="nm">'+s.name+'</span>';
+    seat.onclick = () => toggleSeat(s.id);
   } else {
     seat.className = 'seat idle';
-    const nm = s ? s.name : sid;
-    seat.innerHTML = '<span class="sid">'+sid+'</span><span class="nm">'+nm+'</span>';
+    seat.innerHTML = '<span class="sid">'+s.id+'</span><span class="nm">'+s.name+'</span>';
   }
   return seat;
 }
@@ -13487,6 +13513,14 @@ function switchTab(name){
 async function init(){
   const dateInput = document.getElementById('dateInput');
   dateInput.value = todayStr();
+
+  const ok = await loadRoster();
+  if(!ok || ACTIVE.length === 0){
+    document.getElementById('seatfloor').innerHTML =
+      '<div class="panel" style="color:var(--absent);">명단을 불러오지 못했습니다. 인터넷 연결을 확인하거나 잠시 후 새로고침 해주세요.</div>';
+    return;
+  }
+
   dateInput.addEventListener('change', async () => {
     await loadDay(dateInput.value);
     renderFloor();
