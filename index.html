@@ -12627,6 +12627,7 @@ var qrcode = function() {
 
   .gridbox{display:grid;gap:5px;flex:0 0 auto;}
   .gridbox.g2{grid-template-columns:repeat(2, var(--cell));}
+  .gridbox.g4{grid-template-columns:repeat(4, var(--cell));}
   .gridbox.g3{grid-template-columns:repeat(3, var(--cell));}
 
   .sharedgroup{
@@ -12822,7 +12823,7 @@ var qrcode = function() {
         <div class="weekday-badge" id="weekdayBadge">월</div>
         <div class="roomtabs" id="roomTabs"></div>
       </div>
-      <div class="hint">기본값은 &lsquo;출석&rsquo;입니다. 결석한 학생의 자리만 눌러 표시하세요. 파란 테두리는 요일마다 다른 학생이 앉는 <b>공유좌석</b>입니다. 화면에 뜬(비예정이 아닌) 학생 전원이 오늘의 <b>석식 대상자</b>입니다.</div>
+      <div class="hint">기본값은 &lsquo;출석&rsquo;입니다. 결석한 학생의 자리만 눌러 표시하세요. 화면에 뜬(비예정이 아닌) 학생 전원이 오늘의 <b>석식 대상자</b>입니다.</div>
       <div class="summary" id="summary"></div>
       <div class="save-row">
         <button class="primary" onclick="saveToday()">오늘 출결 저장</button>
@@ -12939,7 +12940,7 @@ const sheetStore = {
 };
 
 let ACTIVE = [];
-const LAYOUT = {"lc": {"leftCol": ["lc_left_1", "lc_left_2", "lc_left_3", "lc_left_4", "lc_left_5", "lc_left_6", "lc_left_7"], "topLeft": ["lc_topLeft_1", "lc_topLeft_2"], "topRight": ["lc_topRight_1", "lc_topRight_2"], "mid1": [["lc_mid1_1", "lc_mid1_2", "lc_mid1_3"], ["lc_mid1_4", "lc_mid1_5", "lc_mid1_6"]], "sharedA_group": ["lc_sharedA_group_1", "lc_sharedA_group_2"], "sharedA_rest": ["lc_sharedA_rest_1", "lc_sharedA_rest_2", "lc_sharedA_rest_3"], "sharedB_group": ["lc_sharedB_group_1", "lc_sharedB_group_2", "lc_sharedB_group_3"], "sharedB_rest": ["lc_sharedB_rest_1", "lc_sharedB_rest_2"], "mid2": [["lc_mid2_1", "lc_mid2_2", "lc_mid2_3"], ["lc_mid2_4", "lc_mid2_5", "lc_mid2_6"]], "bottom": [["lc_bottom_1", "lc_bottom_2"], ["lc_bottom_3", "lc_bottom_4"]]}, "st": [{"id": "row1", "ids": ["st_row1_1", "st_row1_2", "st_row1_3", "st_row1_4", "st_row1_5", "st_row1_6", "st_row1_7", "st_row1_8"]}, {"id": "row2", "ids": ["st_row2_1", "st_row2_2", "st_row2_3", "st_row2_4", "st_row2_5", "st_row2_6", "st_row2_7", "st_row2_8", "st_row2_9", "st_row2_10", "st_row2_11", "st_row2_12"]}, {"id": "row3", "ids": ["st_row3_1", "st_row3_2", "st_row3_3", "st_row3_4", "st_row3_5"]}], "un": []};
+const LAYOUT = {"lc": {"leftCol": ["lc_left_1", "lc_left_2", "lc_left_3", "lc_left_4", "lc_left_5", "lc_left_6", "lc_left_7"], "topLeft": ["lc_topLeft_1", "lc_topLeft_2"], "topRight": [["lc_topRight_1", "lc_topRight_2"], ["lc_topRight_3", "lc_topRight_4"]], "a": [["lc_a_1", "lc_a_2", "lc_a_3"], ["lc_a_4", "lc_a_5", "lc_a_6"]], "mid": [["lc_mid_1", "lc_mid_2", "lc_mid_3", "lc_mid_4"], ["lc_mid_5", "lc_mid_6", "lc_mid_7", "lc_mid_8"]], "b": [["lc_b_1", "lc_b_2", "lc_b_3"], ["lc_b_4", "lc_b_5", "lc_b_6"]], "bottom": [["lc_bottom_1", "lc_bottom_2"], ["lc_bottom_3", "lc_bottom_4"]]}, "st": [{"id": "row1", "ids": ["st_row1_1", "st_row1_2", "st_row1_3", "st_row1_4", "st_row1_5", "st_row1_6", "st_row1_7", "st_row1_8", "st_row1_9", "st_row1_10", "st_row1_11", "st_row1_12"]}, {"id": "row2", "ids": ["st_row2_1", "st_row2_2", "st_row2_3", "st_row2_4", "st_row2_5", "st_row2_6", "st_row2_7", "st_row2_8", "st_row2_9", "st_row2_10", "st_row2_11", "st_row2_12"]}, {"id": "row3", "ids": ["st_row3_1", "st_row3_2", "st_row3_3", "st_row3_4", "st_row3_5", "st_row3_6", "st_row3_7", "st_row3_8"]}], "un": []};
 const EXPORT_ROWS = [{"id": 20101, "name": "강성찬"}, {"id": 20102, "name": "고영은"}, {"id": 20103, "name": "곽수연"}, {"id": 20104, "name": "김가은"}, {"id": 20115, "name": "이돈빈"}, {"id": 20116, "name": "이시우"}, {"id": 20117, "name": "이초희"}, {"id": 20119, "name": "이해인"}, {"id": 20122, "name": "조재현"}, {"id": 20123, "name": "최승우"}, {"id": 20126, "name": "홍석희"}, {"id": 20204, "name": "김나연"}, {"id": 20205, "name": "김다미"}, {"id": 20209, "name": "김하민"}, {"id": 20213, "name": "배민성"}, {"id": 20214, "name": "배은수"}, {"id": 20225, "name": "주혜린"}, {"id": 20302, "name": "강은서"}, {"id": 20304, "name": "김동현"}, {"id": 20306, "name": "김범서"}, {"id": 20310, "name": "배우주"}, {"id": 20321, "name": "정준우"}, {"id": 20324, "name": "최서윤"}, {"id": 20326, "name": "한효원"}, {"id": 20401, "name": "권율"}, {"id": 20402, "name": "김다은"}, {"id": 20405, "name": "김시후"}, {"id": 20406, "name": "김은찬"}, {"id": 20418, "name": "이예슬"}, {"id": 20422, "name": "장윤슬"}, {"id": 20427, "name": "최수안"}, {"id": 20503, "name": "권순범"}, {"id": 20505, "name": "김범"}, {"id": 20515, "name": "엄하은"}, {"id": 20516, "name": "유수인"}, {"id": 20521, "name": "이수민"}, {"id": 20526, "name": "진호용"}, {"id": 20601, "name": "김규종"}, {"id": 20603, "name": "김도윤"}, {"id": 20614, "name": "손희성"}, {"id": 20614, "name": "손희성"}, {"id": 20618, "name": "이아린"}, {"id": 20703, "name": "김예린"}, {"id": 20705, "name": "김지후"}, {"id": 20707, "name": "박보은"}, {"id": 20712, "name": "안우진"}, {"id": 20714, "name": "양재호"}, {"id": 20807, "name": "김정모"}, {"id": 20810, "name": "단예준"}, {"id": 20813, "name": "박시현"}, {"id": 20814, "name": "양석호"}, {"id": 20815, "name": "윤성경"}, {"id": 20816, "name": "윤하준"}, {"id": 20818, "name": "이민재"}, {"id": 20822, "name": "이제호"}, {"id": 20827, "name": "한다한"}, {"id": 20903, "name": "김도윤"}, {"id": 20904, "name": "김동일"}, {"id": 20915, "name": "이소율"}, {"id": 20918, "name": "이태상"}, {"id": 20924, "name": "최준혁"}, null, {"id": 20824, "name": "이환"}, {"id": 20513, "name": "안승준"}];
 
 let byId = {};
@@ -13054,6 +13055,13 @@ function grid3Box(rows, wdKey, counters){
   return box;
 }
 
+function grid4Box(rows, wdKey, counters){
+  const box = document.createElement('div');
+  box.className = 'gridbox g4';
+  rows.forEach(row => row.forEach(sid => box.appendChild(seatEl(sid, wdKey, counters))));
+  return box;
+}
+
 function wrapBox(innerEl, opts){
   opts = opts || {};
   const box = document.createElement('div');
@@ -13100,51 +13108,30 @@ function buildLCFloor(wdKey, counters){
   const rest = document.createElement('div');
   rest.className = 'lc-rest';
 
-  // top row: box1 ......... box2 (같은 x축 범위 안에서 양 끝 정렬)
   const topRow = document.createElement('div');
-  topRow.className = 'rowline spread';
+  topRow.className = 'rowline spread nowrap';
   topRow.appendChild(wrapBox(stackBox(L.topLeft, wdKey, counters)));
-  topRow.appendChild(wrapBox(stackBox(L.topRight, wdKey, counters)));
+  topRow.appendChild(wrapBox(grid2Box(L.topRight, wdKey, counters)));
   rest.appendChild(topRow);
 
-  // mid1: 이제호 조 (내용 크기만큼만 감싸되, 오른쪽 끝을 이예슬/최준혁·공유좌석과 맞춤)
-  const mid1 = wrapBox(grid3Box(L.mid1, wdKey, counters));
-  mid1.classList.add('mid1box', 'align-end');
-  rest.appendChild(mid1);
+  const boxA = wrapBox(grid3Box(L.a, wdKey, counters));
+  boxA.classList.add('mid1box', 'align-end');
+  rest.appendChild(boxA);
 
-  // shared zone (오른쪽 끝을 이예슬/최준혁과 동일하게 맞춤)
-  const zone = document.createElement('div');
-  zone.className = 'zonebox wide align-end';
-  const zlabel = document.createElement('div');
-  zlabel.className = 'zonelabel';
-  zlabel.textContent = '공유좌석 · 요일마다 다른 학생이 앉으니 자리 정돈을 철저히 해주세요';
-  zone.appendChild(zlabel);
-  const zrows = document.createElement('div');
-  zrows.className = 'zonerows';
-  const rA = document.createElement('div');
-  rA.className = 'rowline nowrap justify-end';
-  rA.appendChild(sharedGroup(L.sharedA_group, wdKey, counters));
-  L.sharedA_rest.forEach(sid => rA.appendChild(seatEl(sid, wdKey, counters)));
-  const rB = document.createElement('div');
-  rB.className = 'rowline nowrap sharedrowB justify-end';
-  rB.appendChild(sharedGroup(L.sharedB_group, wdKey, counters));
-  L.sharedB_rest.forEach(sid => rB.appendChild(seatEl(sid, wdKey, counters)));
-  zrows.appendChild(rA);
-  zrows.appendChild(rB);
-  zone.appendChild(zrows);
-  rest.appendChild(zone);
+  const mid = wrapBox(grid4Box(L.mid, wdKey, counters));
+  mid.classList.add('align-end');
+  rest.appendChild(mid);
 
-  // mid2: 김동일 조 (내용 크기만큼만 감싸되, 오른쪽 끝을 동일하게 맞춤)
-  const mid2 = wrapBox(grid3Box(L.mid2, wdKey, counters));
-  mid2.classList.add('align-end');
-  rest.appendChild(mid2);
+  const boxB = wrapBox(grid3Box(L.b, wdKey, counters));
+  boxB.classList.add('align-end');
+  rest.appendChild(boxB);
 
-  // bottom row: 유수인/박보은/최승우/김도윤 박스 ......... 교사 감독실 (같은 x축 오른쪽 끝까지)
   const bottomRow = document.createElement('div');
-  bottomRow.className = 'rowline spread';
+  bottomRow.className = 'rowline spread nowrap';
   bottomRow.appendChild(wrapBox(grid2Box(L.bottom, wdKey, counters)));
   const teacher = document.createElement('div');
   teacher.className = 'teacherbox';
+  teacher.style.width = '250px';
   teacher.textContent = '교사 감독실';
   bottomRow.appendChild(teacher);
   rest.appendChild(bottomRow);
@@ -13171,13 +13158,22 @@ function buildSTFloor(wdKey, counters){
     const row = document.createElement('div');
     row.className = 'strow';
     b.ids.forEach(sid => row.appendChild(seatEl(sid, wdKey, counters)));
+    if(b.id === 'row3'){
+      const t = document.createElement('div');
+      t.className = 'teacherbox';
+      t.style.width = '150px';
+      t.style.marginLeft = '10px';
+      t.textContent = '감독교사자리';
+      row.appendChild(t);
+    }
     wrap.appendChild(row);
   });
-  const teacher = document.createElement('div');
-  teacher.className = 'teacherbox';
-  teacher.style.width = '260px';
-  teacher.textContent = '감독교사자리 · 교단';
-  wrap.appendChild(teacher);
+  const podium = document.createElement('div');
+  podium.className = 'teacherbox';
+  podium.style.width = '160px';
+  podium.style.margin = '10px auto 0';
+  podium.textContent = '교단';
+  wrap.appendChild(podium);
   return wrap;
 }
 
