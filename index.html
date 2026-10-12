@@ -12627,6 +12627,8 @@ var qrcode = function() {
 
   .gridbox{display:grid;gap:5px;flex:0 0 auto;}
   .gridbox.g2{grid-template-columns:repeat(2, var(--cell));}
+  .seat.empty{background:transparent;border:1px dashed var(--ink-soft);opacity:.45;box-shadow:none;}
+  .seat.empty .nm{font-weight:400;}
   .gridbox.g4{grid-template-columns:repeat(4, var(--cell));}
   .gridbox.g3{grid-template-columns:repeat(3, var(--cell));}
 
@@ -13015,8 +13017,8 @@ function seatEl(seatId, wdKey, counters){
   const s = bySeat[seatId];
   const seat = document.createElement('div');
   if(!s){
-    seat.className = 'seat idle';
-    seat.innerHTML = '<span class="nm">빈자리</span>';
+    seat.className = 'seat idle empty';
+    seat.innerHTML = '<span class="nm">-</span>';
     return seat;
   }
   const isSched = !!s[wdKey];
