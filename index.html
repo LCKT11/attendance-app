@@ -13096,6 +13096,24 @@ function buildLCFloor(wdKey, counters){
   const L = LAYOUT.lc;
   const room = document.createElement('div');
   room.className = 'lcroom';
+  room.style.flexDirection = 'column';
+  room.style.alignItems = 'stretch';
+  room.style.gap = '10px';
+  room.style.width = 'fit-content';
+
+  // 윗줄: 이하은/이부영 박스(왼쪽 끝) ...... 홍석희 박스(오른쪽 끝)
+  const topRow = document.createElement('div');
+  topRow.className = 'rowline spread nowrap';
+  topRow.appendChild(wrapBox(stackBox(L.topLeft, wdKey, counters)));
+  topRow.appendChild(wrapBox(grid2Box(L.topRight, wdKey, counters)));
+  room.appendChild(topRow);
+
+  // 가운데: 왼쪽 줄 + 오른쪽 박스들
+  const midRow = document.createElement('div');
+  midRow.className = 'lcmid';
+  midRow.style.display = 'flex';
+  midRow.style.gap = '14px';
+  midRow.style.alignItems = 'flex-start';
 
   const left = document.createElement('div');
   left.className = 'lc-left leftcol-wrap';
@@ -13109,25 +13127,21 @@ function buildLCFloor(wdKey, counters){
 
   const rest = document.createElement('div');
   rest.className = 'lc-rest';
-
-  const topRow = document.createElement('div');
-  topRow.className = 'rowline spread nowrap';
-  topRow.appendChild(wrapBox(stackBox(L.topLeft, wdKey, counters)));
-  topRow.appendChild(wrapBox(grid2Box(L.topRight, wdKey, counters)));
-  rest.appendChild(topRow);
-
   const boxA = wrapBox(grid3Box(L.a, wdKey, counters));
-  boxA.classList.add('mid1box', 'align-end');
+  boxA.classList.add('align-end');
   rest.appendChild(boxA);
-
   const mid = wrapBox(grid4Box(L.mid, wdKey, counters));
   mid.classList.add('align-end');
   rest.appendChild(mid);
-
   const boxB = wrapBox(grid3Box(L.b, wdKey, counters));
   boxB.classList.add('align-end');
   rest.appendChild(boxB);
 
+  midRow.appendChild(left);
+  midRow.appendChild(rest);
+  room.appendChild(midRow);
+
+  // 아랫줄: 양재호~김예린 박스(왼쪽 끝) ...... 교사 감독실(오른쪽 끝)
   const bottomRow = document.createElement('div');
   bottomRow.className = 'rowline spread nowrap';
   bottomRow.appendChild(wrapBox(grid2Box(L.bottom, wdKey, counters)));
@@ -13136,22 +13150,11 @@ function buildLCFloor(wdKey, counters){
   teacher.style.width = '250px';
   teacher.textContent = '교사 감독실';
   bottomRow.appendChild(teacher);
-  rest.appendChild(bottomRow);
-
-  room.appendChild(left);
-  room.appendChild(rest);
+  room.appendChild(bottomRow);
   return room;
 }
 
-function alignLCLeftColumn(roomEl){
-  const mid1El = roomEl.querySelector('.mid1box');
-  const leftWrap = roomEl.querySelector('.leftcol-wrap');
-  if(!mid1El || !leftWrap) return;
-  const roomRect = roomEl.getBoundingClientRect();
-  const mid1Rect = mid1El.getBoundingClientRect();
-  const topOffset = mid1Rect.top - roomRect.top;
-  leftWrap.style.marginTop = Math.max(0, topOffset) + 'px';
-}
+function alignLCLeftColumn(roomEl){ /* 윗줄이 따로 분리되어 정렬 보정이 필요 없음 */ }
 
 function buildSTFloor(wdKey, counters){
   const wrap = document.createElement('div');
